@@ -54,18 +54,21 @@ quadruple x = double (double x)
 --   distance 0 0 1 1  ==>  1.4142135...
 --   distance 1 1 4 5  ==>  5.0
 
+{-
 distance :: Double -> Double -> Double -> Double -> Double
 distance x1 y1 x2 y2 = sqrt((x2-x1)^2 + (y2-y1)^2) 
-
+-}
 ------------------------------------------------------------------------------
 -- Ex 5: define the function eeny that returns "eeny" for even inputs
 -- and "meeny" for odd inputs.
 --
 -- Ps. have a look at the built in function "even"
 
+{-
 eeny :: Integer -> String
 eeny x = if even x then "eeny"
          else "meeny"
+-}
 
 ------------------------------------------------------------------------------
 -- Ex 6: here's the function checkPassword from the course material.
@@ -86,10 +89,12 @@ checkPassword password = if password == "swordfish"
 -- Write a function postagePrice that takes the weight of a package
 -- in grams, and returns the cost in credits.
 
+{-
 postagePrice :: Int -> Int
 postagePrice x = if x <= 500 then 250
                  else if x <= 5000 then 300 + x
                  else 6000
+-}
 
 ------------------------------------------------------------------------------
 -- Ex 8: define a function isZero that returns True if it is given an
@@ -99,26 +104,32 @@ postagePrice x = if x <= 500 then 250
 --
 -- Ps. remember, the type of booleans in haskell is Bool
 
+{-
 isZero :: Integer -> Bool
 isZero 0 = True
 isZero _ = False
+-}
 
 ------------------------------------------------------------------------------
 -- Ex 9: implement using recursion a function sumTo such that
 --   sumTo n
 -- computes the sum 1+2+...+n
 
+{-
 sumTo :: Integer -> Integer
 sumTo 0 = 0
 sumTo n = n + sumTo(n-1) 
+-}
 
 ------------------------------------------------------------------------------
 -- Ex 10: power n k should compute n to the power k (i.e. n^k)
 -- Use recursion.
 
+{-
 power :: Integer -> Integer -> Integer
 power n 0 = 1
 power n k = n * power n (k-1) 
+-}
 
 ------------------------------------------------------------------------------
 -- Ex 11: ilog3 n should be the number of times you can divide given
