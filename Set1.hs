@@ -56,7 +56,7 @@ quadruple x = double (double x)
 --   distance 0 0 1 1  ==>  1.4142135...
 --   distance 1 1 4 5  ==>  5.0
 
-distance :: Double -> Double -> Double -> Double
+distance :: Double -> Double -> Double -> Double -> Double
 distance x1 y1 x2 y2 = sqrt((x2-x1)^2 + (y2-y1)^2) 
 
 ------------------------------------------------------------------------------
@@ -66,7 +66,8 @@ distance x1 y1 x2 y2 = sqrt((x2-x1)^2 + (y2-y1)^2)
 -- Ps. have a look at the built in function "even"
 
 eeny :: Integer -> String
-eeny = todo
+eeny x = if even x then "eeny"
+         else "meeny"
 
 ------------------------------------------------------------------------------
 -- Ex 6: here's the function checkPassword from the course material.
@@ -74,9 +75,9 @@ eeny = todo
 -- "mellon".
 
 checkPassword :: String -> String
-checkPassword password = if password == "swordfish"
-                         then "You're in."
-                         else "ACCESS DENIED!"
+checkPassword password= if password == "swordfish" || password == "mellon"
+                        then "You're in."
+                        else "ACCESS DENIED!"
 
 ------------------------------------------------------------------------------
 -- Ex 7: A postal service prices packages the following way.
@@ -88,7 +89,9 @@ checkPassword password = if password == "swordfish"
 -- in grams, and returns the cost in credits.
 
 postagePrice :: Int -> Int
-postagePrice = todo
+postagePrice x = if x <= 500 then 250
+                 else if x <= 5000 then 300 + x
+                 else 6000
 
 ------------------------------------------------------------------------------
 -- Ex 8: define a function isZero that returns True if it is given an
@@ -98,7 +101,9 @@ postagePrice = todo
 --
 -- Ps. remember, the type of booleans in haskell is Bool
 
-isZero = todo
+isZero :: Integer -> Bool
+isZero 0 = True
+isZero _ = False
 
 ------------------------------------------------------------------------------
 -- Ex 9: implement using recursion a function sumTo such that
@@ -106,14 +111,16 @@ isZero = todo
 -- computes the sum 1+2+...+n
 
 sumTo :: Integer -> Integer
-sumTo = todo
+sumTo 0 = 0
+sumTo n = n + sumTo(n-1) 
 
 ------------------------------------------------------------------------------
 -- Ex 10: power n k should compute n to the power k (i.e. n^k)
 -- Use recursion.
 
 power :: Integer -> Integer -> Integer
-power = todo
+power n 0 = 1
+power n k = n * power n (k-1)
 
 ------------------------------------------------------------------------------
 -- Ex 11: ilog3 n should be the number of times you can divide given
@@ -132,4 +139,6 @@ power = todo
 --   ilog3 7 ==> 2
 
 ilog3 :: Integer -> Integer
-ilog3 = todo
+ilog3 x = if x < 3 then 1
+          else 1+ ilog3(x `div` 3)
+
