@@ -54,21 +54,20 @@ quadruple x = double (double x)
 --   distance 0 0 1 1  ==>  1.4142135...
 --   distance 1 1 4 5  ==>  5.0
 
-{-
+
 distance :: Double -> Double -> Double -> Double -> Double
 distance x1 y1 x2 y2 = sqrt((x2-x1)^2 + (y2-y1)^2) 
--}
+
 ------------------------------------------------------------------------------
 -- Ex 5: define the function eeny that returns "eeny" for even inputs
 -- and "meeny" for odd inputs.
 --
 -- Ps. have a look at the built in function "even"
 
-{-
+
 eeny :: Integer -> String
 eeny x = if even x then "eeny"
          else "meeny"
--}
 
 ------------------------------------------------------------------------------
 -- Ex 6: here's the function checkPassword from the course material.
@@ -89,12 +88,12 @@ checkPassword password = if password == "swordfish"
 -- Write a function postagePrice that takes the weight of a package
 -- in grams, and returns the cost in credits.
 
-{-
+
 postagePrice :: Int -> Int
 postagePrice x = if x <= 500 then 250
                  else if x <= 5000 then 300 + x
                  else 6000
--}
+
 
 ------------------------------------------------------------------------------
 -- Ex 8: define a function isZero that returns True if it is given an
