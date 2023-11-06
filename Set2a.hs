@@ -135,7 +135,7 @@ greet first (Just last) = "Hello, " ++ first ++ " " ++ last ++ "!"
 --   safeIndex ["a","b","c"] (-1)  ==> Nothing
 
 safeIndex :: [a] -> Int -> Maybe a
-safeIndex xs i = if i < 0 || i>=length then xs = Nothing
+safeIndex xs i = if i < 0 || i>=length xs then Nothing
                  else Just (xs !! i)
 
 ------------------------------------------------------------------------------
