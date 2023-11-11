@@ -107,8 +107,12 @@ leftpad a b
 -- * you'll probably need a recursive helper function
 
 countdown :: Integer -> String
-countdown = todo
-
+countdown n
+        | n <= 0    = "Liftoff!"
+        | otherwise = "Ready! " ++ countdown' n
+    where
+        countdown' 1 = "1... Liftoff!"
+        countdown' m = show m ++ "... " ++ countdown' (m-1)
 ------------------------------------------------------------------------------
 -- Ex 6: implement the function smallestDivisor that returns the
 -- smallest number (greater than 1) that divides the given number evenly.
