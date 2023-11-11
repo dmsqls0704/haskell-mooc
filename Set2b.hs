@@ -145,7 +145,9 @@ findDivisor n test
 -- Ps. 0 and 1 are not prime numbers
 
 isPrime :: Integer -> Bool
-isPrime = todo
+isPrime n = if n<2 then False
+            else if smallestDivisor n == n then True
+            else False
 
 ------------------------------------------------------------------------------
 -- Ex 8: implement a function biggestPrimeAtMost that returns the
