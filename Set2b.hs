@@ -162,4 +162,9 @@ isPrime n = if n<2 then False
 --   biggestPrimeAtMost 10 ==> 7
 
 biggestPrimeAtMost :: Integer -> Integer
-biggestPrimeAtMost = todo
+biggestPrimeAtMost n = findLargestPrime n
+
+findLargestPrime :: Integer -> Integer
+findLargestPrime m
+    | isPrime m = m
+    | otherwise = findLargestPrime (m-1)
