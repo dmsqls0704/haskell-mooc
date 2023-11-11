@@ -30,7 +30,13 @@ binomial n k
 --   oddFactorial 6 ==> 5*3*1 ==> 15
 
 oddFactorial :: Integer -> Integer
-oddFactorial = todo
+oddFactorial n = oddFactorial' n 1
+    where
+    oddFactorial' 0 result = result
+    oddFactorial' m result
+        | m <=0          = result
+        | m `mod` 2 == 1 = oddFactorial' (m - 2) (m * result)
+        | otherwise      = oddFactorial' (m - 1) result
 
 ------------------------------------------------------------------------------
 -- Ex 3: implement the Euclidean Algorithm for finding the greatest
