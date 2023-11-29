@@ -86,9 +86,15 @@ mapMaybe2 f x y =
 palindromeHalfs :: [String] -> [String]
 palindromeHalfs xs = map firstHalf (filter palindrome xs)
 
-firstHalf = todo
+firstHalf :: String -> String
+firstHalf xs = if length xs `mod` 2 == 0 
+               then take (length xs `div` 2)xs
+               else take ((length xs +1) `div` 2) xs
 
-palindrome = todo
+palindrome :: String -> Bool
+palindrome xs = if reverse xs == xs
+                then True
+                else False
 
 ------------------------------------------------------------------------------
 -- Ex 5: Implement a function capitalize that takes in a string and
@@ -123,7 +129,7 @@ capitalize = todo
 --   * the function takeWhile
 
 powers :: Int -> Int -> [Int]
-powers k max = todo
+powers k max = takeWhile(<=max) $ map(k^) [0..]
 
 ------------------------------------------------------------------------------
 -- Ex 7: implement a functional while loop. While should be a function
