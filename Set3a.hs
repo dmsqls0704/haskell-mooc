@@ -215,6 +215,13 @@ joinToLength len xs = [ a ++ b | a <- xs, b <- xs, length (a++b) == len]
 --   [] +|+ [True]        ==> [True]
 --   [] +|+ []            ==> []
 
+(+|+) :: [a] -> [a] -> [a]
+(+|+) x y = case (x,y) of
+    (x:_, y:_) -> [x,y]
+    (x:_, [])  -> [x]
+    ([], y:_) -> [y]
+    ([],[]) -> []
+
 
 ------------------------------------------------------------------------------
 -- Ex 11: remember the lectureParticipants example from Lecture 2? We
