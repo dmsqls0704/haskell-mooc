@@ -42,6 +42,7 @@ buildList :: Int -> Int -> Int -> [Int]
 buildList start count end
     | count == 0 = [end]
     | otherwise = start : buildList start (count-1) end
+
 ------------------------------------------------------------------------------
 -- Ex 2: given i, build the list of sums [1, 1+2, 1+2+3, .., 1+2+..+i]
 --
@@ -50,7 +51,11 @@ buildList start count end
 -- Ps. you'll probably need a recursive helper function
 
 sums :: Int -> [Int]
-sums i = todo
+sums i = sums' 1 i
+
+sums' :: Int -> Int -> [Int]
+sums' _ 0 = []
+sums' i j = i * (i+1) `div` 2 : sums' (i + 1) (j - 1)
 
 ------------------------------------------------------------------------------
 -- Ex 3: define a function mylast that returns the last value of the
