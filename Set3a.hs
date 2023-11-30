@@ -112,7 +112,7 @@ palindrome xs = if reverse xs == xs
 --   capitalize "goodbye cruel world" ==> "Goodbye Cruel World"
 
 capitalize :: String -> String
-capitalize = todo
+capitalize xs = unwords. map (\(y:ys) -> toUpper y:ys) . words  $ xs
 
 ------------------------------------------------------------------------------
 -- Ex 6: powers k max should return all the powers of k that are less
