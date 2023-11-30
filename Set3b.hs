@@ -69,7 +69,8 @@ sums' i j = i * (i+1) `div` 2 : sums' (i + 1) (j - 1)
 --   mylast 0 [1,2,3] ==> 3
 
 mylast :: a -> [a] -> a
-mylast def xs = todo
+mylast def [] = def
+mylast def (x:xs) = mylast x xs
 
 ------------------------------------------------------------------------------
 -- Ex 4: safe list indexing. Define a function indexDefault so that
