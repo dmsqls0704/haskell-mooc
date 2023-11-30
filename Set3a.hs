@@ -254,7 +254,9 @@ sumRights = sum . map (either (\_ -> 0) id)
 --   multiCompose [(3*), (2^), (+1)] 0 ==> 6
 --   multiCompose [(+1), (2^), (3*)] 0 ==> 2
 
-multiCompose fs = todo
+multiCompose :: [a -> a ] -> a -> a 
+multiCompose [] x = x
+multiCompose (f:fs) x = f(multiCompose fs x)
 
 ------------------------------------------------------------------------------
 -- Ex 13: let's consider another way to compose multiple functions. Given
