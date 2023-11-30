@@ -222,7 +222,6 @@ joinToLength len xs = [ a ++ b | a <- xs, b <- xs, length (a++b) == len]
     ([], y:_) -> [y]
     ([],[]) -> []
 
-
 ------------------------------------------------------------------------------
 -- Ex 11: remember the lectureParticipants example from Lecture 2? We
 -- used a value of type [Either String Int] to store some measurements
@@ -314,4 +313,14 @@ multiApp f (g:gs) x = multiApp (f . \ys -> [g x] ++ ys) gs x
 -- function, the surprise won't work. See section 3.8 in the material.
 
 interpreter :: [String] -> [String]
-interpreter commands = todo
+interpreter commands = interpreter' 0 0 commands
+
+interpreter' :: Int -> Int -> [String] -> [String]
+interpreter' _ _ [] = []
+interpreter' x y (cmd:cmds) =
+    case cmd of "up" -> interpreter' x (y+1) cmds
+                "down" -> interpreter' x (y-1) cmds
+                "right" -> interpreter' (x+1) y cmds
+                "left" -> interpreter' (x-1) y cmds
+                "printX" -> show x : interpreter' x y cmds
+                "printY" -> show y : interpreter' x y cmds
