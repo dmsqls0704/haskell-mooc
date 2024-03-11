@@ -26,7 +26,11 @@ import Mooc.Todo
 -- Otherwise return "Ok."
 
 workload :: Int -> Int -> String
-workload nExercises hoursPerExercise = todo
+workload nExercises hoursPerExercise = if (nExercises * hoursPerExercise) > 100
+                                       then "Holy moly!"
+                                       else if (nExercises * hoursPerExercise) < 10
+                                       then "Piece of cake!"
+                                       else "Ok"
 
 ------------------------------------------------------------------------------
 -- Ex 2: Implement the function echo that builds a string like this:
